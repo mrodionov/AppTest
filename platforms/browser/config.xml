@@ -8,10 +8,10 @@
     </feature>
     <name>Pobeda TEST</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Простое приложение для тестирования.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+        GoMobile Team
     </author>
     <content src="index.html" />
     <access origin="*" />
