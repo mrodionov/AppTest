@@ -81,38 +81,41 @@ $(function(){
 			//fdate = new Date().toLocaleString('ru', {year: dates[2],month: dates[1], day: dates[0]});
 			var tdate = new Date(dates[1]+","+dates[0]+","+dates[2]).toLocaleString('ru', {year: 'numeric', month: 'long', day: 'numeric'});
 			$(element).html(tdate);
-		//console.log('Индекс элемента div: ' + index + '; id элемента = ' + tdate); 		
-		//console.log('Индекс элемента div: ' + index + '; id элемента = ' + fdate); 		
-		//console.log('Индекс элемента div: ' + index + '; id элемента = ' + $(element).parent("div").parent("div").attr('id')); 		
+
 		}
 	})
   // Callback function references the event target and adds the 'swipe' class to it
   function swipeleftHandler( event ){
     //$( event.target ).addClass( "swipe" );
-	var tmp = $( event.target ).attr('id');
-	dates=tmp.split('-') 
-    //var now1 = new Date($( event.target ).attr('id'));
-    //var now = new Date(now1.getDate()+"-"+(now1.getMonth()+1)+"-"+now1.getFullYear());
-    var now = new Date(dates[1]+","+dates[0]+","+dates[2]);
-	now.setDate(now.getDate() + 1);
-	//alert(now);
-	var str1 = "index.html#"+now.getDate()+"-"+(now.getMonth()+1)+"-"+now.getFullYear();
-	if(now.getMonth()<10)str1 = "index.html#"+now.getDate()+"-0"+(now.getMonth()+1)+"-"+now.getFullYear();
-	$( ":mobile-pagecontainer" ).pagecontainer( "change", str1, { transition : "slide" } );
-	//alert($( event.target ).attr('id'));
+	if($( event.target ).attr('id')){
+		var tmp = $( event.target ).attr('id');
+		console.log("ID: "+tmp)
+		dates=tmp.split('-') 
+		//var now1 = new Date($( event.target ).attr('id'));
+		//var now = new Date(now1.getDate()+"-"+(now1.getMonth()+1)+"-"+now1.getFullYear());
+		var now = new Date(dates[1]+","+dates[0]+","+dates[2]);
+		now.setDate(now.getDate() + 1);
+		//alert(now);
+		var str1 = "index.html#"+now.getDate()+"-"+(now.getMonth()+1)+"-"+now.getFullYear();
+		if(now.getMonth()<10)str1 = "index.html#"+now.getDate()+"-0"+(now.getMonth()+1)+"-"+now.getFullYear();
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", str1, { transition : "slide" } );
+		//alert($( event.target ).attr('id'));
+		}//else{var tmp = $(element).parent("div").parent("div").attr('id');}
   }
   function swiperightHandler( event ){
     //$( event.target ).addClass( "swipe" );
-	var tmp = $( event.target ).attr('id');
-	dates=tmp.split('-') 
-    //var now1 = new Date($( event.target ).attr('id'));
-    //var now = new Date(now1.getDate()+"-"+(now1.getMonth()+1)+"-"+now1.getFullYear());
-    var now = new Date(dates[1]+","+dates[0]+","+dates[2]);
-	now.setDate(now.getDate() - 1);
-	//alert(now);
-	var str1 = "index.html#"+now.getDate()+"-"+(now.getMonth()+1)+"-"+now.getFullYear();
-	if(now.getMonth()<10)str1 = "index.html#"+now.getDate()+"-0"+(now.getMonth()+1)+"-"+now.getFullYear();
-	$( ":mobile-pagecontainer" ).pagecontainer( "change", str1, { transition : "slide", reverse : "true"} );
-	//alert($( event.target ).attr('id'));
+	if($( event.target ).attr('id')){
+		var tmp = $( event.target ).attr('id');
+		dates=tmp.split('-') 
+		//var now1 = new Date($( event.target ).attr('id'));
+		//var now = new Date(now1.getDate()+"-"+(now1.getMonth()+1)+"-"+now1.getFullYear());
+		var now = new Date(dates[1]+","+dates[0]+","+dates[2]);
+		now.setDate(now.getDate() - 1);
+		//alert(now);
+		var str1 = "index.html#"+now.getDate()+"-"+(now.getMonth()+1)+"-"+now.getFullYear();
+		if(now.getMonth()<10)str1 = "index.html#"+now.getDate()+"-0"+(now.getMonth()+1)+"-"+now.getFullYear();
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", str1, { transition : "slide", reverse : "true"} );
+		//alert($( event.target ).attr('id'));
+	}
   }
 });
